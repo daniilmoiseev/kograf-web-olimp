@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+:root {
+  --accent: #F6E22B;
+  --work: #ff8484;
+  --complete: #a9ff94;
+  --text: #fff;
+  --dark: #000;
+  --regular-text: 16px;
+  --line-height: 19px;
+  --userfont: Gilroy-wt, sans-serif;
+}
+
+input {
+  outline: none;
+}
+
+input:focus:required:invalid {
+  border: 2px red;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--userfont), sans-serif;
+  font-size: var(--regular-text);
+  line-height: var(--line-height);
+  color: var(--dark);
+  min-width: 320px;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: var(--dark);
+}
+
+.text-break {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}

@@ -1,0 +1,31 @@
+<section class="flex flex-col items-center justify-center bg-gray-100 min-h-screen p-6">
+  <div class="text-center w-full max-w-xs sm:max-w-md">
+    <div class="mx-auto mb-8 w-24 h-24 flex items-center justify-center">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full text-red-500" fill="none" viewBox="0 0 24 24"
+           stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+      </svg>
+    </div>
+
+    <h1 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-4 leading-tight">
+      404 - Страница не найдена
+    </h1>
+
+    <p class="text-gray-600 mb-10 text-lg sm:text-base">
+      Запрашиваемая страница не существует или была перемещена.
+    </p>
+
+    <div class="w-full flex justify-center">
+      <button
+          [routerLink]="['/']"
+          class="inline-flex items-center justify-center gap-2 px-8 py-4 sm:px-10 sm:py-3 bg-blue-600 hover:bg-blue-700 text-white text-lg sm:text-base font-medium rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+        </svg>
+        Вернуться на главную
+      </button>
+    </div>
+  </div>
+</section>

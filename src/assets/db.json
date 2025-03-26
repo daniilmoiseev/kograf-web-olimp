@@ -1,0 +1,370 @@
+{
+  "users": [
+    {
+      "id": "f4c2",
+      "email": "log@mail.ru",
+      "password": "log123",
+      "role": "Логист"
+    },
+    {
+      "id": "a224",
+      "email": "car1@mail.ru",
+      "password": "car123",
+      "role": "Перевозчик",
+      "createdAt": "2025-03-24T22:51:41.259Z",
+      "updatedAt": "2025-03-24T22:51:41.259Z"
+    },
+    {
+      "id": "d54d",
+      "email": "car2@mail.ru",
+      "password": "car123",
+      "role": "Перевозчик",
+      "createdAt": "2025-03-24T22:51:41.259Z",
+      "updatedAt": "2025-03-24T22:51:41.259Z"
+    },
+    {
+      "id": "394f",
+      "email": "car3@mail.ru",
+      "password": "car123",
+      "role": "Перевозчик",
+      "createdAt": "2025-03-24T22:51:41.259Z",
+      "updatedAt": "2025-03-24T22:51:41.259Z"
+    },
+    {
+      "id": "0c02",
+      "email": "car4@mail.ru",
+      "password": "car123",
+      "role": "Перевозчик",
+      "createdAt": "2025-03-26T17:14:44.044Z",
+      "updatedAt": "2025-03-26T17:14:44.044Z"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "a1b1",
+      "senderAddress": "Зона 1",
+      "receiverAddress": "Зона 5",
+      "deliveryDate": "2025-03-30",
+      "carrier": "car1@mail.ru",
+      "status": "Доставлен",
+      "createdAt": "2025-03-21",
+      "remainingTime": 5
+    },
+    {
+      "id": "2ace",
+      "senderAddress": "Зона 3",
+      "receiverAddress": "Зона 14",
+      "deliveryDate": "2025-03-24",
+      "status": "Доставлен",
+      "carrier": "car1@mail.ru",
+      "createdAt": "2025-03-24T22:24:03.453Z",
+      "remainingTime": 3
+    },
+    {
+      "id": "dab8",
+      "senderAddress": "Зона 4",
+      "receiverAddress": "Зона 4",
+      "deliveryDate": "2025-03-28",
+      "status": "Доставлен",
+      "carrier": "car1@mail.ru",
+      "createdAt": "2025-03-24T22:38:17.210Z",
+      "remainingTime": 3
+    },
+    {
+      "id": "8689",
+      "deliveryDate": "2025-04-05",
+      "receiverAddress": "Зона 23",
+      "senderAddress": "Зона 7",
+      "status": "Доставлен",
+      "carrier": "car1@mail.ru",
+      "createdAt": "2025-03-24T22:40:38.147Z",
+      "remainingTime": 10
+    },
+    {
+      "id": "e853",
+      "senderAddress": "Зона 3",
+      "receiverAddress": "Зона 4",
+      "deliveryDate": "2025-03-29",
+      "status": "Доставлен",
+      "carrier": "car1@mail.ru",
+      "createdAt": "2025-03-24T22:42:06.466Z",
+      "remainingTime": 4
+    },
+    {
+      "id": "322d",
+      "senderAddress": "Зона 2",
+      "receiverAddress": "Зона 6",
+      "deliveryDate": "2025-03-30",
+      "status": "В пути",
+      "carrier": "car1@mail.ru",
+      "createdAt": "2025-03-24T22:42:17.499Z"
+    },
+    {
+      "id": "63ba",
+      "senderAddress": "Зона 4",
+      "receiverAddress": "Зона 8",
+      "deliveryDate": "2025-04-04",
+      "status": "В пути",
+      "carrier": "car2@mail.ru",
+      "createdAt": "2025-03-24T22:57:42.759Z"
+    },
+    {
+      "id": "b6b1",
+      "senderAddress": "Зона 9",
+      "receiverAddress": "Зона 23",
+      "deliveryDate": "2025-04-04",
+      "status": "Доставлен",
+      "carrier": "car3@mail.ru",
+      "createdAt": "2025-03-25T22:11:07.703Z",
+      "remainingTime": 10
+    },
+    {
+      "id": "b6b2",
+      "senderAddress": "Зона 2",
+      "receiverAddress": "Зона 23",
+      "deliveryDate": "2025-04-04",
+      "status": "Доставлен",
+      "carrier": "car1@mail.ru",
+      "createdAt": "2025-03-25T22:11:07.703Z",
+      "remainingTime": 10
+    },
+    {
+      "id": "d5ea",
+      "senderAddress": "Зона 3",
+      "receiverAddress": "Зона 7",
+      "deliveryDate": "2025-03-27",
+      "status": "В пути",
+      "carrier": "car3@mail.ru",
+      "createdAt": "2025-03-26T09:01:03.532Z"
+    },
+    {
+      "id": "7f4a",
+      "senderAddress": "Зона 1",
+      "receiverAddress": "Зона 3",
+      "deliveryDate": "2025-03-28",
+      "status": "В пути",
+      "carrier": "car2@mail.ru",
+      "createdAt": "2025-03-26T09:18:58.154Z"
+    },
+    {
+      "id": "9e82",
+      "senderAddress": "Зона 8",
+      "receiverAddress": "Зона 10",
+      "deliveryDate": "2025-03-29",
+      "status": "В пути",
+      "carrier": "car3@mail.ru",
+      "createdAt": "2025-03-26T09:19:17.538Z"
+    },
+    {
+      "id": "69ac",
+      "senderAddress": "Зона 9",
+      "receiverAddress": "Зона 9",
+      "deliveryDate": "2025-04-02",
+      "status": "В пути",
+      "carrier": "car1@mail.ru",
+      "createdAt": "2025-03-26T09:19:35.819Z"
+    },
+    {
+      "id": "1741",
+      "senderAddress": "Зона 5",
+      "receiverAddress": "Зона 14",
+      "deliveryDate": "2025-04-05",
+      "status": "Доставлен",
+      "carrier": "car4@mail.ru",
+      "createdAt": "2025-03-26T17:15:13.303Z",
+      "remainingTime": 10
+    }
+  ],
+  "zones": [
+    {
+      "id": "f4c2",
+      "type": "FROM",
+      "location": "Зона 1"
+    },
+    {
+      "id": "f4c3",
+      "type": "FROM",
+      "location": "Зона 2"
+    },
+    {
+      "id": "f4c4",
+      "type": "FROM",
+      "location": "Зона 3"
+    },
+    {
+      "id": "f4c5",
+      "type": "FROM",
+      "location": "Зона 4"
+    },
+    {
+      "id": "f4c6",
+      "type": "FROM",
+      "location": "Зона 5"
+    },
+    {
+      "id": "f4c7",
+      "type": "FROM",
+      "location": "Зона 6"
+    },
+    {
+      "id": "f4c8",
+      "type": "FROM",
+      "location": "Зона 7"
+    },
+    {
+      "id": "f4c9",
+      "type": "FROM",
+      "location": "Зона 8"
+    },
+    {
+      "id": "f4d1",
+      "type": "FROM",
+      "location": "Зона 9"
+    },
+    {
+      "id": "f4d2",
+      "type": "FROM",
+      "location": "Зона 10"
+    },
+    {
+      "id": "f4d3",
+      "type": "FROM",
+      "location": "Зона 11"
+    },
+    {
+      "id": "f4d4",
+      "type": "FROM",
+      "location": "Зона 12"
+    },
+    {
+      "id": "f4d5",
+      "type": "FROM",
+      "location": "Зона 13"
+    },
+    {
+      "id": "f4d6",
+      "type": "FROM",
+      "location": "Зона 14"
+    },
+    {
+      "id": "f4d7",
+      "type": "FROM",
+      "location": "Зона 15"
+    },
+    {
+      "id": "f6c2",
+      "type": "TO",
+      "location": "Зона 1"
+    },
+    {
+      "id": "f6c3",
+      "type": "TO",
+      "location": "Зона 2"
+    },
+    {
+      "id": "f6c4",
+      "type": "TO",
+      "location": "Зона 3"
+    },
+    {
+      "id": "f6c5",
+      "type": "TO",
+      "location": "Зона 4"
+    },
+    {
+      "id": "f6c6",
+      "type": "TO",
+      "location": "Зона 5"
+    },
+    {
+      "id": "f6c7",
+      "type": "TO",
+      "location": "Зона 6"
+    },
+    {
+      "id": "f6c8",
+      "type": "TO",
+      "location": "Зона 7"
+    },
+    {
+      "id": "f6c9",
+      "type": "TO",
+      "location": "Зона 8"
+    },
+    {
+      "id": "f6d1",
+      "type": "TO",
+      "location": "Зона 9"
+    },
+    {
+      "id": "f6d2",
+      "type": "TO",
+      "location": "Зона 10"
+    },
+    {
+      "id": "f6d3",
+      "type": "TO",
+      "location": "Зона 11"
+    },
+    {
+      "id": "f6d4",
+      "type": "TO",
+      "location": "Зона 12"
+    },
+    {
+      "id": "f6d5",
+      "type": "TO",
+      "location": "Зона 13"
+    },
+    {
+      "id": "f6d6",
+      "type": "TO",
+      "location": "Зона 14"
+    },
+    {
+      "id": "f6d7",
+      "type": "TO",
+      "location": "Зона 15"
+    },
+    {
+      "id": "f6d8",
+      "type": "TO",
+      "location": "Зона 16"
+    },
+    {
+      "id": "f6d9",
+      "type": "TO",
+      "location": "Зона 17"
+    },
+    {
+      "id": "f6e0",
+      "type": "TO",
+      "location": "Зона 18"
+    },
+    {
+      "id": "f6e1",
+      "type": "TO",
+      "location": "Зона 19"
+    },
+    {
+      "id": "f6e2",
+      "type": "TO",
+      "location": "Зона 20"
+    },
+    {
+      "id": "f6e3",
+      "type": "TO",
+      "location": "Зона 21"
+    },
+    {
+      "id": "f6e4",
+      "type": "TO",
+      "location": "Зона 22"
+    },
+    {
+      "id": "f6e5",
+      "type": "TO",
+      "location": "Зона 23"
+    }
+  ]
+}

@@ -1,0 +1,181 @@
+<section class="p-8 bg-gray-50 min-h-screen">
+  <div class="flex justify-between items-center mb-8">
+    <h1 class="text-3xl font-bold text-gray-800">
+      <span class="text-blue-600">Carrier</span> Dashboard
+    </h1>
+    <button (click)="logout()"
+            class="flex items-center gap-2 bg-gray-200 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-300 transition-all">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+      </svg>
+      Выйти
+    </button>
+  </div>
+
+  <div>
+    <div class="bg-white rounded-xl shadow-sm border border-gray-100">
+      <div class="p-6 border-b border-gray-100">
+        <h2 class="text-xl font-semibold text-gray-700">Мои задания</h2>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full table-fixed">
+          <thead class="bg-gray-50 text-gray-500 text-sm">
+          <tr>
+            <th class="w-2/12 p-4 text-left rounded-tl-xl">Маршрут</th>
+            <th class="w-2/12 p-4 text-left">Доставка</th>
+            <th class="w-2/12 p-4 text-left">Осталось</th>
+            <th class="w-2/12 p-4 text-left">Статус</th>
+            <th class="w-2/12 p-4 text-left rounded-tr-xl">Действия</th>
+          </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100">
+          <tr *ngFor="let task of tasks" class="hover:bg-gray-50 transition-colors">
+            <td class="w-2/12 p-4">
+              <div class="flex items-center gap-3">
+                <div class="w-2 h-2 rounded-full bg-blue-600"></div>
+                <div>
+                  <div class="font-medium text-gray-800">{{ task.senderAddress }}</div>
+                  <div class="text-sm text-gray-500">→ {{ task.receiverAddress }}</div>
+                </div>
+              </div>
+            </td>
+            <td class="w-2/12 p-4">
+              <div class="text-sm">{{ task.deliveryDate | date:'dd.MM.yyyy' }}</div>
+            </td>
+            <td class="w-2/12 p-4">
+              <div *ngIf="task.status === TaskStatus.IN_PROGRESS" class="text-sm font-medium"
+                   [ngClass]="{'text-red-500': task.remainingTime < 3}">
+                {{ task.remainingTime }} дн.
+              </div>
+              <div *ngIf="task.status === TaskStatus.DELIVERED" class="text-sm font-medium">
+                -
+              </div>
+            </td>
+            <td class="w-2/12 p-4">
+                <span class="px-3 py-1 rounded-full text-sm"
+                      [ngClass]="{
+                        'bg-blue-100 text-blue-800': task.status === TaskStatus.IN_PROGRESS,
+                        'bg-green-100 text-green-800': task.status === TaskStatus.DELIVERED
+                      }">
+                  {{ task.status }}
+                </span>
+            </td>
+            <td class="w-2/12 p-4">
+              <div class="flex gap-2">
+                <button *ngIf="task.status !== TaskStatus.DELIVERED"
+                        (click)="completeTask(task)"
+                        class="px-3 py-1 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-all text-sm">
+                  Доставлено
+                </button>
+                <button (click)="showTaskOnMap(task)"
+                        class="px-3 py-1 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all text-sm">
+                  На карте
+                </button>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="selectedTask"
+       class="fixed inset-0 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4 z-50">
+    <div class="bg-white rounded-xl max-w-4xl w-full animate-slideUp">
+      <div class="p-6 border-b border-gray-100 flex justify-between items-center">
+        <h3 class="text-lg font-semibold">Маршрут задания</h3>
+        <button (click)="selectedTask = null" class="text-gray-400 hover:text-gray-600">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
+        <div class="md:col-span-1 space-y-4">
+          <div>
+            <h4 class="text-sm font-medium text-gray-500">Маршрут</h4>
+            <p class="mt-1">{{ selectedTask.senderAddress }} → {{ selectedTask.receiverAddress }}</p>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <h4 class="text-sm font-medium text-gray-500">Дата доставки</h4>
+              <p class="mt-1">{{ selectedTask.deliveryDate | date:'dd.MM.yyyy' }}</p>
+            </div>
+            <div>
+              <h4 class="text-sm font-medium text-gray-500">Осталось</h4>
+              <p class="mt-1">{{ selectedTask.remainingTime }} дней</p>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-sm font-medium text-gray-500">Статус</h4>
+            <span class="mt-1 px-3 py-1 rounded-full text-sm"
+                  [ngClass]="{
+                    'bg-blue-100 text-blue-800': selectedTask.status === TaskStatus.IN_PROGRESS,
+                    'bg-green-100 text-green-800': selectedTask.status === TaskStatus.DELIVERED
+                  }">
+              {{ selectedTask.status }}
+            </span>
+          </div>
+
+          <div class="pt-4">
+            <button *ngIf="selectedTask.status !== TaskStatus.DELIVERED"
+                    (click)="completeTask(selectedTask)"
+                    class="w-full px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+              Отметить доставленным
+            </button>
+          </div>
+        </div>
+
+        <div class="md:col-span-2">
+          <div class="bg-gray-50 p-4 rounded-lg">
+            <h4 class="text-sm font-medium text-gray-700 mb-3">Карта зон</h4>
+
+            <div class="grid grid-cols-5 gap-3">
+              <div *ngFor="let zone of zones"
+                   (click)="toggleZoneSelection(zone)"
+                   [ngClass]="getZoneClasses(zone)"
+                   [title]="!isSenderZone(zone.location) ? 'Эта зона только для доставки' : ''"
+                   class="aspect-square border-2 rounded-lg flex items-center justify-center cursor-pointer transition-colors relative overflow-hidden">
+
+                <ng-container *ngIf="isSelfDeliveryZone(zone.location)">
+                  <div class="absolute inset-y-0 left-0 w-1/2 bg-green-100 border-r border-green-400"></div>
+                  <div class="absolute inset-y-0 right-0 w-1/2 bg-red-100 border-l border-red-400"></div>
+                </ng-container>
+
+                <div *ngIf="isAvailableZone(zone.location) && !isActiveRouteZone(zone.location)"
+                     class="absolute inset-0 bg-yellow-100 opacity-30"></div>
+
+                <span class="font-medium text-sm relative z-10">{{ zone.location }}</span>
+              </div>
+            </div>
+
+            <div class="mt-6 flex flex-wrap gap-4">
+              <div class="flex items-center gap-2">
+                <div class="w-4 h-4 bg-green-100 border-2 border-green-400 rounded"></div>
+                <span class="text-sm">Отправка</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="w-4 h-4 bg-red-100 border-2 border-red-400 rounded"></div>
+                <span class="text-sm">Доставка</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="w-4 h-4 bg-yellow-100 border-2 border-yellow-400 rounded"></div>
+                <span class="text-sm">Доступные зоны</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="w-4 h-4 bg-purple-100 border-2 border-purple-400 rounded"></div>
+                <span class="text-sm">Самодоставка</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
