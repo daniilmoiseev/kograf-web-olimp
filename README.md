@@ -12,10 +12,14 @@ npm install
 
 ### 2. Запуск приложения
 
-Откройте терминал и выполните следующую команду:
+Откройте два терминала и выполните следующие команды:
 
 ```bash
-npm run start & npm run start:json-server
+npm run start
+```
+
+```bash
+npm run start:json-server
 ```
 
 Она запустит и приложение на порту 4200, и JSON Server на порту 3000.
